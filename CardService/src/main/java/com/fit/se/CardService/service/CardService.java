@@ -10,5 +10,7 @@ public interface CardService {
 
 	List<Card> getAll();
     void save(List<Card> dsChuyenBay);
-    int delete(Long id);
+    Long delete(Long id);
+    Card getCardById(Long id);
+    Card update (Card card);
 }
