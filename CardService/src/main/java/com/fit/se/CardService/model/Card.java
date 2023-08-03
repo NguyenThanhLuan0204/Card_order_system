@@ -41,6 +41,9 @@ public class Card implements Serializable {
 
 	@Column(name="price")
 	private Long price;
+	
+	@Column(name ="quantity")
+	private int quantity;
 
 	public Long getId() {
 		return id;
@@ -96,6 +99,14 @@ public class Card implements Serializable {
 
 	public void setPrice(Long price) {
 		this.price = price;
+	}
+
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
 	}
 
 }
