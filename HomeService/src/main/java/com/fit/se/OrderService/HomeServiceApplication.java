@@ -1,15 +1,15 @@
-package com.fit.se.CardService;
+package com.fit.se.OrderService;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
-
 @EnableDiscoveryClient
 @SpringBootApplication
-public class CardService {
+public class HomeServiceApplication {
+
 	public static void main(String[] args) {
-		SpringApplication.run(CardService.class, args);
+		SpringApplication.run(HomeServiceApplication.class, args);
 	}
 
 }

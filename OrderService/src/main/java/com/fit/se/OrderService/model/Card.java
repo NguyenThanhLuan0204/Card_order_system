@@ -1,15 +1,8 @@
-package com.fit.se.CardService.model;
+package com.fit.se.OrderService.model;
 
 
-
+import javax.persistence.*;
 import java.io.Serializable;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
 
 @Entity
@@ -28,13 +21,13 @@ public class Card implements Serializable {
 	private String nameCard;
 
 	@Column(name="card_type")
-	private Integer type;
+	private int type;
 
 	@Column(name="card_decription", columnDefinition = "nvarchar(200)")
 	private String decription;
 
 	@Column(name="status")
-	private Integer status;
+	private int status;
 
 	@Column(name="card_img")
 	private String img;
@@ -42,10 +35,10 @@ public class Card implements Serializable {
 	@Column(name="price")
 	private Long price;
 	@Column(name="ValidQuanlity")
-	private Integer ValidQuanlity;
+	private int ValidQuanlity;
 
-	public Long getId() {
-		return id;
+	public String getId() {
+		return id.toString();
 	}
 
 	public void setId(Long id) {
@@ -60,7 +53,7 @@ public class Card implements Serializable {
 		this.nameCard = nameCard;
 	}
 
-	public Integer getType() {
+	public int getType() {
 		return type;
 	}
 
@@ -76,7 +69,7 @@ public class Card implements Serializable {
 		this.decription = decription;
 	}
 
-	public Integer getStatus() {
+	public int getStatus() {
 		return status;
 	}
 

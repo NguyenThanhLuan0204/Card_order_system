@@ -1,4 +1,4 @@
-package common.dto;
+package com.fit.se.CardService.common.dto;
 
 import lombok.Data;
 
