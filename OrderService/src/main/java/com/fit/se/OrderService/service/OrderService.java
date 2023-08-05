@@ -12,6 +12,7 @@ public interface OrderService {
     Order getOrderById(String orderId);
     int getQuantityValid(String cardId);
     List<Order> getAll();
+    void deleteOrder(Long id);
     // Add other necessary methods for your API
 }
 

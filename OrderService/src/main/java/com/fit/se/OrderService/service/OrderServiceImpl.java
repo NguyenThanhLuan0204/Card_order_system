@@ -91,4 +91,9 @@ public class OrderServiceImpl implements OrderService {
 	public List<Order> getAll() {
 		return repo.findAll();
 	}
+
+	@Override
+	public void deleteOrder(Long id) {
+		repo.updateOrderStatus(0, id);
+	}
 }

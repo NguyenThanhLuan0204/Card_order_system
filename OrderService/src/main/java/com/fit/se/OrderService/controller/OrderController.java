@@ -35,6 +35,11 @@ public class OrderController {
     	return mapper.writeValueAsString(orderService.getAll());
     }
     
+    public String deleteOrder(@PathVariable Long id) {
+    	orderService.deleteOrder(id);
+    	return "delete success";
+    }
+    
     @GetMapping("/{orderId}")
     public Order getOrder(@PathVariable String orderId) {
         Order order = orderService.getOrderById(orderId);
