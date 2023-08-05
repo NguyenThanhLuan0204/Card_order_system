@@ -1,48 +1,26 @@
-package com.fit.se.CardService.model;
+package com.fit.se.OrderService.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 
+import lombok.Data;
 
-import java.io.Serializable;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-
-@Entity
-@Table(name = "cards")
-public class Card implements Serializable {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+@Data
+public class CardDTO {
+	@JsonProperty("id")
 	private Long id;
-
-	@Column(name="card_name", columnDefinition = "varchar(100)")
+	@JsonProperty("nameCard")
 	private String nameCard;
-
-	@Column(name="card_type")
+	@JsonProperty("type")
 	private Integer type;
-
-	@Column(name="card_decription", columnDefinition = "nvarchar(200)")
+	@JsonProperty("decription")
 	private String decription;
-
-	@Column(name="status")
+	@JsonProperty("status")
 	private Integer status;
-
-	@Column(name="card_img")
+	@JsonProperty("img")
 	private String img;
-
-	@Column(name="price")
+	@JsonProperty("price")
 	private Long price;
-	
-	@Column(name="quantityStorage")
+	@JsonProperty("quantityStorage")
 	private Integer quantityStorage;
 
 	public Long getId() {
@@ -108,6 +86,4 @@ public class Card implements Serializable {
 	public void setQuantityStorage(Integer quantityStorage) {
 		this.quantityStorage = quantityStorage;
 	}
-
-	
 }

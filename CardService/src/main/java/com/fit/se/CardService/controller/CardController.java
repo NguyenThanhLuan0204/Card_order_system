@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -16,13 +17,16 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fit.se.CardService.model.Card;
 import com.fit.se.CardService.service.CardService;
 import com.google.gson.Gson;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import lombok.extern.slf4j.Slf4j;
 
-import lombok.experimental.PackagePrivate;
-
+@Slf4j
 @RestController
 @RequestMapping("/api/v1/card")
 public class CardController {
-//    private static Logger logger = LogManager.getLogger(ChuyenBayController.class);
+    private static final Logger LOGGER = LogManager.getLogger(CardController.class);
+
     private static Gson gson = new Gson();
     @Autowired
     private CardService cardService;
@@ -40,9 +44,15 @@ public class CardController {
     	return mapper.writeValueAsString(cardService.getCardById(id));
     }
     
-    @PostMapping("/update/{id}")
-    public String updateCard(@PathVariable Long id) throws JsonProcessingException {
-    	Card card = cardService.getCardById(id);
+    @PostMapping("/save")
+    public String save(@RequestBody Card card) throws JsonProcessingException {
+    	
+    	return mapper.writeValueAsString(cardService.saveOne(card));
+    }
+    
+    @PostMapping(value="/update", consumes = "application/json", produces = "application/json")
+    public String updateCard(@RequestBody Card card) throws JsonProcessingException {
+    	LOGGER.info("{}" , mapper.writeValueAsString(card));
     	Card cardUpdate = cardService.update(card);
     	return mapper.writeValueAsString(cardUpdate);
     }

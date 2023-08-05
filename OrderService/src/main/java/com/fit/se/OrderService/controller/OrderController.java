@@ -19,12 +19,23 @@ public class OrderController {
     private ObjectMapper mapper;
 
     @PostMapping("/create")
-    public Order createOrder(@RequestBody Order order) throws JsonProcessingException {
+    public String createOrder(@RequestBody Order order) throws JsonProcessingException {
         Order createdOrder = orderService.createOrder(order);
-        return createdOrder;
+        if(createdOrder!=null) {
+        	return mapper.writeValueAsString(createdOrder);
+        }
+        return "Tạo hóa đơn thất bại";
     }
-
-    @GetMapping("/orders/{orderId}")
+    @PostMapping("/cancel/{id}")
+    public String cancelOrder(@PathVariable Long id) {
+    	return null;
+    }
+    @GetMapping("/")
+    public String getAll() throws JsonProcessingException {
+    	return mapper.writeValueAsString(orderService.getAll());
+    }
+    
+    @GetMapping("/{orderId}")
     public Order getOrder(@PathVariable String orderId) {
         Order order = orderService.getOrderById(orderId);
         if (order != null) {

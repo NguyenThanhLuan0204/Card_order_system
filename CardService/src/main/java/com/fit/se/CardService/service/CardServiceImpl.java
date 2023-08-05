@@ -23,6 +23,11 @@ public class CardServiceImpl implements CardService {
 	public void save(List<Card> dsChuyenBay) {
 		cardRepository.saveAll(dsChuyenBay);
 	}
+	
+	@Override
+	public Card saveOne(Card card) {
+		return cardRepository.save(card);
+	}
 
 	@Override
 	public Long delete(Long id) {
@@ -43,8 +48,7 @@ public class CardServiceImpl implements CardService {
 	@SuppressWarnings("deprecation")
 	@Override
 	public Card update(Card card) {
-		Card cardTmp = cardRepository.getById(card.getId());
-		return cardRepository.save(cardTmp);
+		return cardRepository.save(card);
 	}
 
 }

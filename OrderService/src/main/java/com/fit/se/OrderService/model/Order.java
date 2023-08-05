@@ -4,7 +4,14 @@ package com.fit.se.OrderService.model;
 
 import java.io.Serializable;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import io.micrometer.core.annotation.Counted;
 
 
 @Entity
@@ -19,14 +26,23 @@ public class Order implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(name="id_Card", columnDefinition = "Long", nullable = false)
+	@Column(name="id_Card")
 	private Long idCard;
 
-	@Column(name="quanlity", columnDefinition = "integer")
-	private Integer quanlity;
+	@Column(name="quantity")
+	private Integer quantity;
+	
+	@Column(name= "order_name")
+	private String orderName;
+	
+	@Column(name="ship_address")
+	private String shipAddress;
+	
+	@Column(name="status")
+	private int status;
 
-	public String getId() {
-		return id.toString();
+	public Long getId() {
+		return id;
 	}
 
 	public void setId(Long id) {
@@ -41,12 +57,28 @@ public class Order implements Serializable {
 		this.idCard = idCard;
 	}
 
-
-	public Integer getQuanlity() {
-		return quanlity;
+	public Integer getQuantity() {
+		return quantity;
 	}
 
-	public void setQuanlity(Integer quanlity) {
-		this.quanlity = quanlity;
+	public void setQuantity(Integer quantity) {
+		this.quantity = quantity;
 	}
+
+	public String getOrderName() {
+		return orderName;
+	}
+
+	public void setOrderName(String orderName) {
+		this.orderName = orderName;
+	}
+
+	public String getShipAddress() {
+		return shipAddress;
+	}
+
+	public void setShipAddress(String shipAddress) {
+		this.shipAddress = shipAddress;
+	}
+
 }
