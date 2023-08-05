@@ -1,21 +1,25 @@
 #server:
 #  port: 9191
-
+#
 #spring:
 #  application:
 #    name: API-GATEWAY
 #  cloud:
 #    gateway:
 #      routes:
-#        - id: CHUYENBAYSERVICE
-#          uri: lb://CHUYENBAYSERVICE
+#        - id: CARDSERVICE
+#          uri: lb://CARDSERVICE
 #          predicates:
-#            - Path=/api/v1/chuyenbay/**
+#            - Path=/**
 #          filters:
 #            - name: CircuitBreaker
 #              args:
 #                name: USER-SERVICE
 #                fallbackuri: forward:/fallback
+#        - id: HOMESERVICE
+#          uri: lb://HOMESERVICE
+#          predicates:
+#            - Path=/home/**
 #hystrix:
 #  command:
 #    fallbackcmd:
@@ -23,8 +27,8 @@
 #        isolation:
 #          thread:
 #            timeoutInMilliseconds: 4000
-
-
+#
+#
 #management:
 #  endpoints:
 #    web:

@@ -8,6 +8,8 @@
         <option value="$PROJECT_DIR$/HomeService/pom.xml" />
         <option value="$PROJECT_DIR$/ChuyenBayService/pom.xml" />
         <option value="$PROJECT_DIR$/SpringDiscoveryServer/pom.xml" />
+        <option value="$PROJECT_DIR$/CardService/pom.xml" />
+        <option value="$PROJECT_DIR$/OrderService/pom.xml" />
       </list>
     </option>
   </component>

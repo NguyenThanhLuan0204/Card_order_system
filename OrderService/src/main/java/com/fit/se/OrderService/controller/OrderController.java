@@ -28,7 +28,8 @@ public class OrderController {
     }
     @PostMapping("/cancel/{id}")
     public String cancelOrder(@PathVariable Long id) {
-    	return null;
+        orderService.deleteOrder(id);
+    	return "ok";
     }
     @GetMapping("/")
     public String getAll() throws JsonProcessingException {

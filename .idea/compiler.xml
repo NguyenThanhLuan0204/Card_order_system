@@ -2,11 +2,14 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="ChuyenBayService" />
+        <module name="CardService" />
+        <module name="OrderService" />
         <module name="ApiGateWay" />
         <module name="HomeService" />
         <module name="SpringDiscoveryServer" />
@@ -16,8 +19,10 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="ApiGateWay" options="-parameters" />
+      <module name="CardService" options="-parameters" />
       <module name="ChuyenBayService" options="-parameters" />
       <module name="HomeService" options="-parameters" />
+      <module name="OrderService" options="-parameters" />
       <module name="SpringDiscoveryServer" options="-parameters" />
     </option>
   </component>
